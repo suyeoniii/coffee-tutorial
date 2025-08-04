@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import TabNavigation from './components/TabNavigation';
 import RecipeSection from './components/RecipeSection';
+import BeansSection from './components/BeansSection';
 import TutorialSection from './components/TutorialSection';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
 
       <div className="p-4">
         {currentTab === 'recipes' && <RecipeSection />}
+        {currentTab === 'beans' && <BeansSection />}
         {currentTab === 'tutorial' && <TutorialSection />}
       </div>
     </div>

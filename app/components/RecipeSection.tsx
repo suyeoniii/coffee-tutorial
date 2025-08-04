@@ -1,11 +1,11 @@
-import { recipes } from '../../data/recipes';
+import { presetRecipes } from '../../data/recipes';
 
 export default function RecipeSection() {
   return (
     <div>
       <h2 className="text-lg font-semibold mb-4">커피 레시피</h2>
       <div className="space-y-6">
-        {recipes.map((recipe) => (
+        {presetRecipes.map((recipe) => (
           <div key={recipe.id} className="border p-4 rounded">
             <div className="flex gap-4">
               <img 
