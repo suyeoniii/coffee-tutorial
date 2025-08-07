@@ -10,8 +10,14 @@ interface RecipeDetailProps {
   onBack: () => void;
 }
 
+interface StepSection {
+  title: string;
+  items: string[];
+  timeAndAmount?: string;
+}
+
 export default function RecipeDetail({ recipe, onBack }: RecipeDetailProps) {
-  const brewingSteps = [
+  const brewingSteps: StepSection[] = [
     {
       title: '기본 정보',
       items: [
@@ -24,17 +30,31 @@ export default function RecipeDetail({ recipe, onBack }: RecipeDetailProps) {
     }
   ];
 
-  // steps를 섹션별로 분리 - 린싱 관련 단계 제거
-  const filteredSteps = recipe.steps.filter(step => 
-    !step.includes('린싱') && !step.includes('예열')
-  );
+  // 상세 단계가 있으면 사용하고, 없으면 기존 방식 사용
+  const useDetailedSteps = recipe.detailedSteps && recipe.detailedSteps.length > 0;
   
-  const additionalSteps = filteredSteps.map((step, index) => ({
-    title: index === 0 ? '블루밍' : index === 1 ? '1차 추출' : index === 2 ? '2차 추출' : index === 3 ? '3차 추출' : '마무리',
-    items: [step]
-  }));
-
-  const allSteps = [...brewingSteps, ...additionalSteps];
+  let allSteps: StepSection[] = [...brewingSteps];
+  
+  if (useDetailedSteps) {
+    // 새로운 상세 단계 사용
+    const detailedSteps: StepSection[] = recipe.detailedSteps!.map((step) => ({
+      title: step.title,
+      items: [step.description],
+      timeAndAmount: step.timeAndAmount
+    }));
+    allSteps = [...brewingSteps, ...detailedSteps];
+  } else {
+    // 기존 방식 (호환성을 위해)
+    const filteredSteps = recipe.steps.filter(step => 
+      !step.includes('린싱') && !step.includes('예열')
+    );
+    
+    const additionalSteps: StepSection[] = filteredSteps.map((step, index) => ({
+      title: index === 0 ? '블루밍' : index === 1 ? '1차 추출' : index === 2 ? '2차 추출' : index === 3 ? '3차 추출' : '마무리',
+      items: [step]
+    }));
+    allSteps = [...brewingSteps, ...additionalSteps];
+  }
 
   return (
     <div>
@@ -111,17 +131,23 @@ export default function RecipeDetail({ recipe, onBack }: RecipeDetailProps) {
         <div className="space-y-4">
           {allSteps.map((section, sectionIndex) => (
             <div key={sectionIndex} className="border rounded-lg p-4">
-              <h3 className="font-medium text-md mb-3 flex items-center">
+              <h3 className="font-medium text-md flex items-center mb-2">
                 <span className="bg-gray-800 text-white rounded-full w-6 h-6 text-xs flex items-center justify-center mr-2">
                   {sectionIndex + 1}
                 </span>
                 {section.title}
               </h3>
-              <ul className="space-y-2">
+              
+              {section.timeAndAmount && (
+                <div className="text-sm text-gray-600 mb-2">
+                  {section.timeAndAmount}
+                </div>
+              )}
+              
+              <ul className="space-y-1">
                 {section.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="text-sm text-gray-700 flex items-start">
-                    <span className="text-gray-400 mr-2">•</span>
-                    <span>{item}</span>
+                  <li key={itemIndex} className="text-sm text-gray-700">
+                    {item}
                   </li>
                 ))}
               </ul>

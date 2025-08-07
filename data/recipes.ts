@@ -1,4 +1,4 @@
-import { Recipe, Bean } from '../types/recipe';
+import { Recipe, Bean, BrewingStep } from '../types/recipe';
 
 // 공통 원두 데이터
 export const beans: Bean[] = [
@@ -64,6 +64,28 @@ export const recipes: Recipe[] = [
       '40ml의 물로 30초간 블루밍합니다',
       '원을 그리며 천천히 물을 부어줍니다',
       '총 추출시간 2분 30초를 목표로 합니다'
+    ],
+    detailedSteps: [
+      {
+        title: '블루밍',
+        timeAndAmount: '0분 00초 ~ 0분 30초, 40ml',
+        description: '가루 전체가 젖도록 천천히 부어주세요.'
+      },
+      {
+        title: '1차 추출',
+        timeAndAmount: '0분 30초 ~ 1분 10초, 120ml까지 (총 160ml)',
+        description: '중앙에서 바깥으로 나선형으로 부어주세요.'
+      },
+      {
+        title: '2차 추출',
+        timeAndAmount: '1분 10초 ~ 1분 50초, 240ml까지 (총 280ml)',
+        description: '조금 더 빠른 속도로 부어주세요.'
+      },
+      {
+        title: '3차 추출',
+        timeAndAmount: '1분 50초 ~ 2분 30초, 320ml까지 (총 320ml)',
+        description: '천천히 마무리해주세요.'
+      }
     ],
     imageUrl: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400'
   },

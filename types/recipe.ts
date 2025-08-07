@@ -13,6 +13,12 @@ export interface TasteProfile {
   bitterness: number; // 1-5
 }
 
+export interface BrewingStep {
+  title: string;
+  timeAndAmount?: string; // 예: "0:30-1:00, 40ml" 또는 "0:30-1:00 | 40ml"
+  description: string;
+}
+
 export interface Recipe {
   id: string;
   name: string;
@@ -33,6 +39,7 @@ export interface Recipe {
   targetBean?: Bean; // custom용 - 특정 원두 타겟
   tasteProfile?: TasteProfile; // custom용 - 맛 프로필
   memo?: string; // custom용 - 개인 메모
-  steps: string[];
+  steps: string[]; // 기존 호환성을 위해 유지
+  detailedSteps?: BrewingStep[]; // 새로운 상세 단계
   imageUrl: string;
 }
