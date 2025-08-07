@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { beans, getCustomRecipesByBean } from '../../data/recipes';
+import { useBeans, useCustomRecipesByBean } from '../../hooks/useData';
 import { Recipe } from '../../types/recipe';
 import RecipeDetail from './RecipeDetail';
 import UnifiedRecipeCard from './ui/UnifiedRecipeCard';
@@ -14,11 +14,43 @@ interface BeanDetailProps {
 
 export default function BeanDetail({ beanName, onBack }: BeanDetailProps) {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
+  const { beans, loading: beansLoading, error: beansError } = useBeans();
+  const { recipes: customRecipes, loading: recipesLoading, error: recipesError } = useCustomRecipesByBean(beanName);
+  
   const bean = beans.find(b => b.name === beanName);
-  const customRecipes = getCustomRecipesByBean(beanName);
+
+  if (beansLoading || recipesLoading) {
+    return (
+      <div>
+        <BackButton onClick={onBack} label="원두 목록으로 돌아가기" />
+        <div className="text-center py-8">
+          <div className="text-gray-500">정보를 불러오는 중...</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (beansError || recipesError) {
+    return (
+      <div>
+        <BackButton onClick={onBack} label="원두 목록으로 돌아가기" />
+        <div className="text-center py-8">
+          <div className="text-red-500">정보를 불러오는데 실패했습니다.</div>
+          <div className="text-sm text-gray-500 mt-2">{beansError || recipesError}</div>
+        </div>
+      </div>
+    );
+  }
 
   if (!bean) {
-    return <div>원두를 찾을 수 없습니다.</div>;
+    return (
+      <div>
+        <BackButton onClick={onBack} label="원두 목록으로 돌아가기" />
+        <div className="text-center py-8">
+          <div className="text-red-500">원두를 찾을 수 없습니다.</div>
+        </div>
+      </div>
+    );
   }
 
   if (selectedRecipe) {
