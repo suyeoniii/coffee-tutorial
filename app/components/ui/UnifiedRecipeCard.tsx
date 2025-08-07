@@ -70,23 +70,17 @@ export default function UnifiedRecipeCard({ recipe, onClick, variant = 'default'
           </div>
           <p className="text-sm text-gray-600 mb-3">{recipe.description}</p>
           
-          <BrewingParams 
-            brewingParams={recipe.brewingParams}
-            layout="full"
-          />
-          
-          {recipe.recommendedBeans && recipe.recommendedBeans.length > 0 && (
-            <div className="mt-3 text-xs text-gray-500">
-              <span className="font-medium">추천 원두:</span>
-              <div className="mt-1 space-y-1">
-                {recipe.recommendedBeans.map((bean, index) => (
-                  <div key={index} className="text-xs">
-                    <span className="font-medium">{bean.name}</span> ({bean.origin}) - {bean.notes.join(', ')}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          <div className="flex gap-2 flex-wrap">
+            <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs">
+              #{recipe.difficulty}
+            </span>
+            <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs">
+              #{recipe.method}
+            </span>
+            <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs">
+              #{recipe.dripper}
+            </span>
+          </div>
         </div>
       </div>
     </div>
