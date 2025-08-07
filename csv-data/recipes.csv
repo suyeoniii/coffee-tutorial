@@ -1,1 +1,1 @@
-name,type,description,temperature,difficulty,method,dripper,imageUrl,bean_amount,grind_size,water_temperature,water_amount,brew_time,step1,step2,step3,step4,step5,step6,acidity,body,sweetness,bitterness,memo,recommendedBeans 
+id,name,type,description,temperature,difficulty,method,dripper,imageUrl,bean_amount,grind_size,water_temperature,water_amount,brew_time,step1,step2,step3,step4,step5,step6,acidity,body,sweetness,bitterness,memo,recommendedBeans 
