@@ -1,6 +1,7 @@
 'use client';
 
 import { beans, getCustomRecipesByBean } from '../../data/recipes';
+import Section from './ui/Section';
 
 interface BeansGridProps {
   onBeanSelect: (beanName: string) => void;
@@ -8,8 +9,7 @@ interface BeansGridProps {
 
 export default function BeansGrid({ onBeanSelect }: BeansGridProps) {
   return (
-    <div>
-      <h2 className="text-lg font-semibold mb-4">원두별 레시피</h2>
+    <Section title="원두별 레시피">
       <div className="grid grid-cols-2 gap-4">
         {beans.map((bean) => {
           const customRecipeCount = getCustomRecipesByBean(bean.name).length;
@@ -34,6 +34,6 @@ export default function BeansGrid({ onBeanSelect }: BeansGridProps) {
           );
         })}
       </div>
-    </div>
+    </Section>
   );
 }
