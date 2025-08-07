@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useBeans, useCustomRecipesByBean } from '../../hooks/useData';
 import { Recipe } from '../../types/recipe';
-import RecipeDetail from './RecipeDetail';
 import UnifiedRecipeCard from './ui/UnifiedRecipeCard';
 import BackButton from './BackButton';
 
@@ -13,11 +12,15 @@ interface BeanDetailProps {
 }
 
 export default function BeanDetail({ beanName, onBack }: BeanDetailProps) {
-  const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
+  const router = useRouter();
   const { beans, loading: beansLoading, error: beansError } = useBeans();
   const { recipes: customRecipes, loading: recipesLoading, error: recipesError } = useCustomRecipesByBean(beanName);
   
   const bean = beans.find(b => b.name === beanName);
+
+  const handleRecipeClick = (recipe: Recipe) => {
+    router.push(`/recipes/${recipe.id}`);
+  };
 
   if (beansLoading || recipesLoading) {
     return (
@@ -53,10 +56,6 @@ export default function BeanDetail({ beanName, onBack }: BeanDetailProps) {
     );
   }
 
-  if (selectedRecipe) {
-    return <RecipeDetail recipe={selectedRecipe} onBack={() => setSelectedRecipe(null)} />;
-  }
-
   return (
     <div>
       <BackButton onClick={onBack} label="원두 목록으로 돌아가기" />
@@ -69,9 +68,8 @@ export default function BeanDetail({ beanName, onBack }: BeanDetailProps) {
           />
           <div className="flex-1">
             <h2 className="text-lg font-semibold">{bean.name}</h2>
-            <p className="text-sm text-gray-600 mb-1">{bean.origin}</p>
-            <p className="text-xs text-gray-500">{bean.description}</p>
-            <div className="mt-2">
+            <p className="text-xs text-gray-500 mb-2">{bean.description}</p>
+            <div>
               <span className="text-xs font-medium">향미 노트: </span>
               <span className="text-xs text-gray-600">{bean.notes.join(', ')}</span>
             </div>
@@ -85,7 +83,7 @@ export default function BeanDetail({ beanName, onBack }: BeanDetailProps) {
             <UnifiedRecipeCard 
               key={recipe.id}
               recipe={recipe}
-              onClick={setSelectedRecipe}
+              onClick={handleRecipeClick}
               variant="compact"
             />
           ))}

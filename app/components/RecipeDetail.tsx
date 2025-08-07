@@ -117,7 +117,7 @@ export default function RecipeDetail({ recipe, onBack }: RecipeDetailProps) {
               <div className="space-y-2">
                 {recipe.recommendedBeans.map((bean, index) => (
                   <div key={index} className="text-xs bg-gray-50 p-2 rounded">
-                    <span className="font-medium">{bean.name}</span> ({bean.origin}) - {bean.notes.join(', ')}
+                    <span className="font-medium">{bean.name}</span> - {bean.notes.join(', ')}
                   </div>
                 ))}
               </div>

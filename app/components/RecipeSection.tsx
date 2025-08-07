@@ -1,19 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { usePresetRecipes } from '../../hooks/useData';
 import { Recipe } from '../../types/recipe';
-import RecipeDetail from './RecipeDetail';
 import UnifiedRecipeCard from './ui/UnifiedRecipeCard';
 import Section from './ui/Section';
 
 export default function RecipeSection() {
-  const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
+  const router = useRouter();
   const { recipes: presetRecipes, loading, error } = usePresetRecipes();
 
-  if (selectedRecipe) {
-    return <RecipeDetail recipe={selectedRecipe} onBack={() => setSelectedRecipe(null)} />;
-  }
+  const handleRecipeClick = (recipe: Recipe) => {
+    router.push(`/recipes/${recipe.id}`);
+  };
 
   if (loading) {
     return (
@@ -43,7 +42,7 @@ export default function RecipeSection() {
           <UnifiedRecipeCard 
             key={recipe.id}
             recipe={recipe}
-            onClick={setSelectedRecipe}
+            onClick={handleRecipeClick}
             variant="default"
           />
         ))}

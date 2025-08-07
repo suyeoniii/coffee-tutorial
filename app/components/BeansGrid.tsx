@@ -63,7 +63,6 @@ function BeanGridItem({ bean, onBeanSelect }: BeanGridItemProps) {
         className="w-full h-24 object-cover rounded mb-2"
       />
       <h3 className="font-medium text-sm">{bean.name}</h3>
-      <p className="text-xs text-gray-500 mb-1">{bean.origin}</p>
       <p className="text-xs text-gray-600">
         {customRecipeCount}개 레시피
       </p>
