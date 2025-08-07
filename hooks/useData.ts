@@ -11,13 +11,17 @@ export function useRecipes() {
     async function fetchRecipes() {
       try {
         setLoading(true);
+        console.log('🔄 클라이언트: API 호출 시작...');
         const response = await fetch('/api/recipes');
         if (!response.ok) {
           throw new Error('Failed to fetch recipes');
         }
         const data = await response.json();
+        console.log('✅ 클라이언트: API 응답 받음:', data.length, '개 레시피');
+        console.log('📋 클라이언트: 레시피 타입들:', data.map(r => `${r.name}(${r.type})`));
         setRecipes(data);
       } catch (err) {
+        console.error('❌ 클라이언트: API 에러:', err);
         setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {
         setLoading(false);
