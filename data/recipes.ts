@@ -113,6 +113,28 @@ export const recipes: Recipe[] = [
       '3번에 나누어 천천히 추출합니다',
       '전체 시간 3분을 맞춰줍니다'
     ],
+    detailedSteps: [
+      {
+        title: '블루밍',
+        timeAndAmount: '0분 00초 ~ 0분 45초, 50ml',
+        description: '가루 전체가 균일하게 젖도록 부어주세요.'
+      },
+      {
+        title: '1차 추출',
+        timeAndAmount: '0분 45초 ~ 1분 30초, 150ml까지 (총 200ml)',
+        description: '안정적으로 천천히 부어주세요.'
+      },
+      {
+        title: '2차 추출',
+        timeAndAmount: '1분 30초 ~ 2분 15초, 275ml까지 (총 325ml)',
+        description: '일정한 속도로 부어주세요.'
+      },
+      {
+        title: '3차 추출',
+        timeAndAmount: '2분 15초 ~ 3분 00초, 350ml까지 (총 350ml)',
+        description: '마지막까지 천천히 마무리해주세요.'
+      }
+    ],
     imageUrl: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400'
   },
   {
@@ -138,6 +160,28 @@ export const recipes: Recipe[] = [
       '60ml로 1분간 긴 블루밍을 합니다',
       '높은 위치에서 천천히 물을 부어줍니다',
       '총 4분의 추출시간을 맞춥니다'
+    ],
+    detailedSteps: [
+      {
+        title: '블루밍',
+        timeAndAmount: '0분 00초 ~ 1분 00초, 60ml',
+        description: '높은 위치에서 천천히 젖혀주세요.'
+      },
+      {
+        title: '1차 추출',
+        timeAndAmount: '1분 00초 ~ 2분 00초, 200ml까지 (총 260ml)',
+        description: '높은 위치에서 천천히 부어주세요.'
+      },
+      {
+        title: '2차 추출',
+        timeAndAmount: '2분 00초 ~ 3분 00초, 350ml까지 (총 410ml)',
+        description: '계속 높은 위치에서 부어주세요.'
+      },
+      {
+        title: '3차 추출',
+        timeAndAmount: '3분 00초 ~ 4분 00초, 500ml까지 (총 500ml)',
+        description: '마지막까지 높은 위치에서 마무리해주세요.'
+      }
     ],
     imageUrl: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400'
   },
@@ -165,6 +209,28 @@ export const recipes: Recipe[] = [
       '짧은 시간에 집중적으로 추출합니다',
       '얼음과 함께 즉시 서빙합니다'
     ],
+    detailedSteps: [
+      {
+        title: '블루밍',
+        timeAndAmount: '0분 00초 ~ 0분 30초, 40ml',
+        description: '빠르게 가루를 적셔주세요.'
+      },
+      {
+        title: '1차 추출',
+        timeAndAmount: '0분 30초 ~ 1분 00초, 120ml까지 (총 160ml)',
+        description: '집중적으로 빠르게 부어주세요.'
+      },
+      {
+        title: '2차 추출',
+        timeAndAmount: '1분 00초 ~ 1분 30초, 200ml까지 (총 240ml)',
+        description: '계속 빠른 속도로 부어주세요.'
+      },
+      {
+        title: '마무리',
+        timeAndAmount: '1분 30초 ~ 2분 00초, 250ml까지 (총 250ml)',
+        description: '남은 양을 빠르게 마무리해주세요.'
+      }
+    ],
     imageUrl: 'https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=400'
   },
   {
@@ -190,6 +256,28 @@ export const recipes: Recipe[] = [
       '뜨거운 물을 한 번에 모두 부어줍니다',
       '4분간 우려낸 후 플런저를 천천히 내립니다',
       '바로 다른 용기로 옮겨 과추출을 방지합니다'
+    ],
+    detailedSteps: [
+      {
+        title: '물 붓기',
+        timeAndAmount: '0분 00초 ~ 0분 30초, 500ml',
+        description: '한 번에 모든 물을 부어주세요.'
+      },
+      {
+        title: '우리기',
+        timeAndAmount: '0분 30초 ~ 4분 00초',
+        description: '가만히 놓아두고 기다려주세요.'
+      },
+      {
+        title: '플런징',
+        timeAndAmount: '4분 00초 ~ 4분 30초',
+        description: '천천히 플런저를 내려주세요.'
+      },
+      {
+        title: '따르기',
+        timeAndAmount: '즉시',
+        description: '바로 다른 용기로 옮겨주세요.'
+      }
     ],
     imageUrl: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400'
   },
@@ -228,6 +316,28 @@ export const recipes: Recipe[] = [
       '빠르게 원을 그리며 추출합니다',
       '2분 15초 안에 마무리합니다'
     ],
+    detailedSteps: [
+      {
+        title: '블루밍',
+        timeAndAmount: '0분 00초 ~ 0분 30초, 36ml',
+        description: '과일향이 나오도록 천천히 부어주세요.'
+      },
+      {
+        title: '1차 추출',
+        timeAndAmount: '0분 30초 ~ 1분 00초, 120ml까지 (총 156ml)',
+        description: '빠르게 원을 그리며 부어주세요.'
+      },
+      {
+        title: '2차 추출',
+        timeAndAmount: '1분 00초 ~ 1분 30초, 220ml까지 (총 256ml)',
+        description: '계속 빠른 속도로 부어주세요.'
+      },
+      {
+        title: '3차 추출',
+        timeAndAmount: '1분 30초 ~ 2분 15초, 300ml까지 (총 300ml)',
+        description: '마지막까지 빠르게 마무리해주세요.'
+      }
+    ],
     imageUrl: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400'
   },
   {
@@ -261,6 +371,28 @@ export const recipes: Recipe[] = [
       '44ml로 짧게 블루밍합니다',
       '짧은 시간에 집중 추출합니다',
       '얼음과 함께 즉시 서빙합니다'
+    ],
+    detailedSteps: [
+      {
+        title: '블루밍',
+        timeAndAmount: '0분 00초 ~ 0분 20초, 44ml',
+        description: '시트러스 향이 나오도록 부어주세요.'
+      },
+      {
+        title: '1차 추출',
+        timeAndAmount: '0분 20초 ~ 0분 50초, 120ml까지 (총 164ml)',
+        description: '빠르게 집중적으로 부어주세요.'
+      },
+      {
+        title: '2차 추출',
+        timeAndAmount: '0분 50초 ~ 1분 20초, 180ml까지 (총 224ml)',
+        description: '계속 빠른 속도로 부어주세요.'
+      },
+      {
+        title: '마무리',
+        timeAndAmount: '1분 20초 ~ 1분 45초, 220ml까지 (총 220ml)',
+        description: '남은 양을 빠르게 마무리해주세요.'
+      }
     ],
     imageUrl: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400'
   },
@@ -298,6 +430,28 @@ export const recipes: Recipe[] = [
       '천천히 원을 그리며 추출합니다',
       '총 3분의 추출시간을 맞춥니다'
     ],
+    detailedSteps: [
+      {
+        title: '블루밍',
+        timeAndAmount: '0분 00초 ~ 0분 45초, 42ml',
+        description: '와인향이 나오도록 천천히 부어주세요.'
+      },
+      {
+        title: '1차 추출',
+        timeAndAmount: '0분 45초 ~ 1분 30초, 130ml까지 (총 172ml)',
+        description: '천천히 원을 그리며 부어주세요.'
+      },
+      {
+        title: '2차 추출',
+        timeAndAmount: '1분 30초 ~ 2분 15초, 250ml까지 (총 292ml)',
+        description: '계속 천천히 부어주세요.'
+      },
+      {
+        title: '3차 추출',
+        timeAndAmount: '2분 15초 ~ 3분 00초, 330ml까지 (총 330ml)',
+        description: '마지막까지 천천히 마무리해주세요.'
+      }
+    ],
     imageUrl: 'https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=400'
   },
 
@@ -334,6 +488,28 @@ export const recipes: Recipe[] = [
       '3번에 나누어 안정적으로 추출합니다',
       '총 3분 30초로 여유있게 추출합니다'
     ],
+    detailedSteps: [
+      {
+        title: '블루밍',
+        timeAndAmount: '0분 00초 ~ 0분 45초, 46ml',
+        description: '균형잡힌 맛이 나오도록 부어주세요.'
+      },
+      {
+        title: '1차 추출',
+        timeAndAmount: '0분 45초 ~ 1분 30초, 150ml까지 (총 196ml)',
+        description: '안정적으로 천천히 부어주세요.'
+      },
+      {
+        title: '2차 추출',
+        timeAndAmount: '1분 30초 ~ 2분 30초, 280ml까지 (총 326ml)',
+        description: '계속 안정적으로 부어주세요.'
+      },
+      {
+        title: '3차 추출',
+        timeAndAmount: '2분 30초 ~ 3분 30초, 370ml까지 (총 370ml)',
+        description: '여유있게 천천히 마무리해주세요.'
+      }
+    ],
     imageUrl: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400'
   },
 
@@ -369,6 +545,28 @@ export const recipes: Recipe[] = [
       '뜨거운 물을 모두 부어줍니다',
       '4분 30초간 충분히 우려냅니다',
       '플런저를 천천히 내리고 바로 따라냅니다'
+    ],
+    detailedSteps: [
+      {
+        title: '물 붓기',
+        timeAndAmount: '0분 00초 ~ 0분 30초, 520ml',
+        description: '한 번에 모든 물을 부어주세요.'
+      },
+      {
+        title: '우리기',
+        timeAndAmount: '0분 30초 ~ 4분 30초',
+        description: '달콤한 맛이 우러나도록 기다려주세요.'
+      },
+      {
+        title: '플런징',
+        timeAndAmount: '4분 30초 ~ 5분 00초',
+        description: '부드럽게 플런저를 내려주세요.'
+      },
+      {
+        title: '따르기',
+        timeAndAmount: '즉시',
+        description: '바로 다른 용기로 옮겨주세요.'
+      }
     ],
     imageUrl: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400'
   }
